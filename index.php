@@ -1,21 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="#" method="post">
+      <input type="number" name="Tinggi" value="" placeholder="Tinggi Badan">Cm<br>
+      <input type="number" name="Berat" value="" placeholder="Berat Badan">Kg<br>
+      <input type="radio" name="gender" value="male"> Male<br>
+      <input type="radio" name="gender" value="female"> Female<br>
+
+      <input type="submit" name="submit">
+    </form>
+
+  </body>
+</html>
 <?php
-class Kelas{
-    protected $jumlah;
-    public function belajar(){
-       echo "Sedang belajar <br>";
-    }
-    public function tampil_jumlah(){
-        echo "Jumlah mahasiswa adalah ".$this->jumlah."<br>";
-    }
-}
-class StudyGroup extends Kelas{
-    public function setjumlah($jumlah){
-        $this->jumlah = $jumlah;
-    }
+if (isset($_POST['submit'])) {
+  include 'kalkulator.php';
+  $tinggi = $_POST['Tinggi'];
+  $berat = $_POST['Berat'];
+  $gender = $_POST['gender'];
+
+  $objek = new kalkulator();
+  $objek->hitung($tinggi,$berat,$gender);
 }
 
-$d34102 = new StudyGroup();
-//$d34102->jumlah = 5;
-$d34102->setjumlah(20);
-$d34102->tampil_jumlah();
-?>
+ ?>
